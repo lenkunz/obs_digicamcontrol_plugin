@@ -140,11 +140,6 @@ static obs_properties_t *digicamcontrol_source_properties(void *data)
 {
 	struct digicamcontrol_source *context = (struct digicamcontrol_source *)data;
 
-	wstring w_using_path = get_directory() + L"\\digicamstudio-libs\\liveview.jpg";
-	char using_path[300];
-
-	wcstombs(using_path, w_using_path.c_str(), 300);
-
 	obs_properties_t *prop = obs_properties_create();
 
 #ifdef USE_STANDALONELIB
@@ -182,6 +177,11 @@ static obs_properties_t *digicamcontrol_source_properties(void *data)
 
 		free(list_p);
 	}
+
+	wstring w_using_path = get_directory() + L"\\digicamstudio-libs\\liveview.jpg";
+	char using_path[300];
+
+	wcstombs(using_path, w_using_path.c_str(), 300);
 
 	if (context->use_standalone) {
 		obs_properties_add_bool(prop, "image_standby_enable", obs_module_text("Display image when not connected (standby, only standalone)"));
