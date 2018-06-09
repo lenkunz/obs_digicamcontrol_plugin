@@ -3,6 +3,7 @@
 #include <curl/curl.h>
 #include <iostream>
 #include <atlstr.h>
+#include <stdlib.h>
 
 using namespace std;
 
@@ -165,7 +166,7 @@ static obs_properties_t *digicamcontrol_source_properties(void *data)
 		LPWSTR *list_p = (LPWSTR*)malloc(array_entry_size * sizeof(LPWSTR) * device_list_size);
 		LPWSTR *current_entry = list_p;
 
-		context->camera.device_get_list(list_p, array_entry_size, device_list_size);
+		context->camera.device_get_list(list_p, array_entry_size * sizeof(LPWSTR), device_list_size);
 
 		for (int i = 0; i < device_list_size; i++) {
 			char *buffer = new char[array_entry_size];
