@@ -106,7 +106,9 @@ static void digicamcontrol_source_destroy(void *data)
 {
 	struct digicamcontrol_source *context = (struct digicamcontrol_source *)data;
 
+#ifdef USE_STANDALONELIB
 	destroy_camera_module(context);
+#endif // USE_STANDALONELIB
 	bfree(context);
 }
 
