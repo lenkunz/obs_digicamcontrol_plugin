@@ -29,7 +29,13 @@ extern wstring get_directory()
 	return wstring(wpath);
 }
 
-extern HMODULE load_module(wstring filename) {
+extern void unload_module(HMODULE ext)
+{
+	FreeLibrary(ext);
+}
+
+extern HMODULE load_module(wstring filename)
+{
 	wstring path = get_directory() + L"\\" + filename;
 	return LoadLibrary(path.c_str());
 }
@@ -52,7 +58,8 @@ size_t _download_writer(void *contents, size_t size, size_t nmemb, void *userp)
 	return realsize;
 }
 
-extern void download_file_data_destroy(struct download_file_data *info) {
+extern void download_file_data_destroy(struct download_file_data *info)
+{
 	free(info->data);
 	info->size = 0;
 	info->success = false;

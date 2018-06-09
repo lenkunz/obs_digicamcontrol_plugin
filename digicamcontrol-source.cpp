@@ -66,7 +66,7 @@ static void digicamcontrol_source_update(void *data, obs_data_t *settings)
 	{
 		ensure_camera_module(context);
 
-		int deviceIndex = obs_data_get_int(settings, "device_index");
+		int deviceIndex = (int)obs_data_get_int(settings, "device_index");
 		const char *connection_string = obs_data_get_string(settings, "device_connection_string");
 
 		wchar_t *w_connection_string = (wchar_t *)malloc(400);
@@ -106,6 +106,7 @@ static void digicamcontrol_source_destroy(void *data)
 {
 	struct digicamcontrol_source *context = (struct digicamcontrol_source *)data;
 
+	destroy_camera_module(context);
 	bfree(context);
 }
 

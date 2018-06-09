@@ -38,6 +38,7 @@ typedef struct camera_function {
 	c_initialize initialize;
 } camera_function_t;
 
+void destroy_camera_module(struct digicamcontrol_source *context);
 extern void ensure_camera_module(struct digicamcontrol_source *context);
 extern void get_texture_from_camera(struct digicamcontrol_source *context);
 

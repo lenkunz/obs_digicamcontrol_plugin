@@ -8,6 +8,14 @@
 #include "device-camera.hpp"
 #include "digicamcontrol-source.hpp"
 
+extern void destroy_camera_module(struct digicamcontrol_source *context) {
+	camera_function_t *c = &(context->camera);
+	if (c->ext_module != NULL) {
+		unload_module(c->ext_module);
+		c->ext_module = NULL;
+	}
+}
+
 extern void ensure_camera_module(struct digicamcontrol_source *context)
 {
 	camera_function_t *c = &(context->camera);

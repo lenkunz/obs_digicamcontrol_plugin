@@ -15,5 +15,6 @@ void download_file_data_destroy(struct download_file_data *info);
 
 std::wstring get_directory();
 HMODULE load_module(std::wstring filename);
+void unload_module(HMODULE ext);
 
 #endif // !DCC_OBS_UTILS_HPP
