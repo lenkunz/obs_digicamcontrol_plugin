@@ -1,7 +1,5 @@
 
-#ifndef DCC_OBS_IMAGE_HPP
-#define DCC_OBS_IMAGE_HPP true
-
+#pragma once
 #include <graphics/graphics.h>
 
 #ifdef __cplusplus
@@ -20,5 +18,3 @@ struct jpeg_texture_info {
 };
 
 EXTERNC uint8_t *decode_image_simd(struct jpeg_texture_info *info, void *data, size_t size);
-
-#endif // !DCC_OBS_IMAGE_HPP

@@ -1,6 +1,4 @@
-#ifndef DCC_OBS_SOURCE_H
-#define DCC_OBS_SOURCE_H true
-
+#pragma once
 #include <obs-module.h>
 #include "image.hpp"
 
@@ -32,5 +30,3 @@ extern struct obs_source_info digicamcontrol_source_info;
 #else
 #define STANDALONELIB_CONTEXT(context)	false
 #endif
-
-#endif // !DCC_OBS_SOURCE_H

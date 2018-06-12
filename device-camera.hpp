@@ -1,5 +1,5 @@
-#if defined USE_STANDALONELIB && !defined DCC_OBS_DEVICE_CAMERA_HPP
-#define DCC_OBS_DEVICE_CAMERA_HPP true
+#pragma once
+#ifdef USE_STANDALONELIB
 
 #include <graphics/graphics.h>
 #include <Windows.h>
@@ -42,4 +42,4 @@ void destroy_camera_module(struct digicamcontrol_source *context);
 extern void ensure_camera_module(struct digicamcontrol_source *context);
 extern void get_texture_from_camera(struct digicamcontrol_source *context);
 
-#endif // !DCC_OBS_DEVICE_CAMERA_HPP
+#endif // !USE_STANDALONELIB

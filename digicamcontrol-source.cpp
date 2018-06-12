@@ -204,6 +204,7 @@ void digicamcontrol_source_default(obs_data_t *setting)
 #ifdef USE_STANDALONELIB
 	obs_data_set_default_bool(setting, "use_standalone_camera", false);
 	obs_data_set_default_string(setting, "device_connection_string", "<Auto>");
+
 	wstring w_using_path = get_directory() + L"\\digicamstudio-libs\\liveview.jpg";
 	char using_path[300];
 	wcstombs(using_path, w_using_path.c_str(), 300);
